@@ -108,4 +108,30 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <profiles>
+        <profile>
+            <id>debug</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>3.3.2</version>
+                        <configuration>
+                            <packagingExcludes>
+                                <!-- Исключаем пакет jmx -->
+                                WEB-INF/classes/sbp/school/jmx/**,
+                                <!-- Исключаем контроллер -->
+                                WEB-INF/classes/**/MyTargetController.class
+                            </packagingExcludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
