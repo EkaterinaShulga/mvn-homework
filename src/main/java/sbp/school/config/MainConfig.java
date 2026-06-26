@@ -33,11 +33,9 @@ public class MainConfig implements WebMvcConfigurer
     }
 
     @Bean
-    @Profile("!debug")
     AppStatistics appStatisticsBean() {return new AppStatisticsImpl();}
 
     @Bean
-    @Profile("!debug")
     MBeanExporter jmxExporter()
     {
         MBeanExporter exporter = new MBeanExporter();
