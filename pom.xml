@@ -10,19 +10,23 @@
     <packaging>pom</packaging>
 
     <name>Maven Webapp for Homework</name>
+    <modules>
+        <module>mvn-main</module>
+        <module>mvn-test</module>
+    </modules>
 
+    <!-- Версии зависимостей -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <!-- Версии зависимостей -->
-        <spring-webmvc.version>5.3.15</spring-webmvc.version>
-        <spring-beans.version>5.3.16</spring-beans.version>
+        <!-- Единая версия для всех Spring модулей -->
+        <spring.version>5.3.16</spring.version>
+
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <junit.version>4.11</junit.version>
         <jstl.version>1.2</jstl.version>
-        <spring-core.version>5.3.16</spring-core.version>
     </properties>
 
     <dependencyManagement>
@@ -31,31 +35,13 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
-                <version>${spring-webmvc.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-core</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-beans</artifactId>
-                    </exclusion>
-                </exclusions>
+                <version>${spring.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
-                <version>${spring-beans.version}</version>
+                <version>${spring.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring-core.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
@@ -81,10 +67,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
