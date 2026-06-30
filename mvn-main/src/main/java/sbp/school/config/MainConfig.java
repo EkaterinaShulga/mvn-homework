@@ -3,6 +3,7 @@ package sbp.school.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jmx.export.MBeanExporter;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -32,10 +33,7 @@ public class MainConfig implements WebMvcConfigurer
     }
 
     @Bean
-    AppStatistics appStatisticsBean()
-    {
-        return new AppStatisticsImpl();
-    }
+    AppStatistics appStatisticsBean() {return new AppStatisticsImpl();}
 
     @Bean
     MBeanExporter jmxExporter()
